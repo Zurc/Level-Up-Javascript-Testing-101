@@ -1,4 +1,4 @@
-import { hello, add, removeSNames, total } from './App';
+import { hello, removeSNames, total } from './App';
 
 // describe('hello', () => {
 //   // what IT should do
@@ -45,14 +45,22 @@ import { hello, add, removeSNames, total } from './App';
 //   });
 // })
 
+// ----- React testing for beginners -----
+
+// MOCK FUNTIONS
+// useful when we don't have access to the real function
+const add = jest.fn(() => 3);
 // UNIT TEST
 // it only tests one thing
 test('add', () => {
 	expect(add(1, 2)).toBe(3);
+	expect(add).toBeDefined();
+	expect(add).toHaveBeenCalledTimes(1);
+	expect(add).toHaveBeenCalledWith(1, 2);
 });
 
 // INTEGRATION TEST
-// a function relying on another function
-test('total', () => {
-	expect(total(5, 20)).toBe('$25');
-});
+// a function relying on another function, test things working together
+// test('total', () => {
+// 	expect(total(5, 20)).toBe('$25');
+// });
